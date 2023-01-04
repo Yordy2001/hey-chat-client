@@ -5,7 +5,7 @@ export default class AxiosApi {
   constructor() {
     this.api = axios.create({
       withCredentials: true,
-      baseURL: `${process.env.VITE_SERVER_URL}`,
+      baseURL: `${import.meta.env.VITE_SERVER_URL}`,
     });
   }
 }
