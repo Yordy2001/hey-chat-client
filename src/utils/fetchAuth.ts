@@ -6,7 +6,7 @@ export default class FetchAuth extends AxiosApi {
     await this.api.post("/login", data);
   }
 
-  async register(data: IUser) {
+  async register(data: any) {
     await this.api.post("/register", data);
   }
 

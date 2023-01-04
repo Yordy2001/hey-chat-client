@@ -9,8 +9,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 // import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
@@ -28,7 +26,7 @@ export const Login = (props: Props) => {
     const onSubmit = async (data: IUser, e: any) => {
         e.preventDefault()
         try {
-            // console.log("dfgdfgdfg",data);
+
             await authService.logIn(data)
             localStorage.setItem('hey-chat', JSON.stringify({ isAuthtenicate: true }))
         } catch (error) {
