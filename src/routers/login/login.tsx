@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 import { IUser } from '../../interfaces/user.interface'
 import FetchAuth from '../../utils/fetchAuth';
@@ -21,14 +22,15 @@ type Props = {}
 const authService = new FetchAuth()
 export const Login = (props: Props) => {
     const theme = createTheme();
+    const navigate = useNavigate()
     const { register, handleSubmit } = useForm<IUser>()
 
     const onSubmit = async (data: IUser, e: any) => {
         e.preventDefault()
         try {
-
             await authService.logIn(data)
             localStorage.setItem('hey-chat', JSON.stringify({ isAuthtenicate: true }))
+            navigate('/')
         } catch (error) {
             console.log(error);
         }
