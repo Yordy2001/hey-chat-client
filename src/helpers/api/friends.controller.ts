@@ -1,5 +1,5 @@
-import { IUser } from "../interfaces/user.interface";
-import AxiosApi from "../utils/axios.instance";
+import { IUser } from "../../interfaces/user.interface";
+import AxiosApi from "./axios.instance";
 
 export class FriendsController extends AxiosApi {
   // server endpoint

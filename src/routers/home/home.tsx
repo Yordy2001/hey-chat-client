@@ -6,7 +6,7 @@ import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
 
 import './home.css'
-import { FriendsController } from '../../helpers/friends.controller';
+import { FriendsController } from '../../helpers/api/friends.controller';
 import { IUser } from '../../interfaces/user.interface';
 
 

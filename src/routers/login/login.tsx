@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 import { IUser } from '../../interfaces/user.interface'
-import FetchAuth from '../../utils/fetchAuth';
+import FetchAuth from '../../helpers/api/fetchAuth';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
