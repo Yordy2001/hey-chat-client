@@ -30,7 +30,7 @@ export const Login = (props: Props) => {
         try {
             await authService.logIn(data)
             localStorage.setItem('hey-chat', JSON.stringify({ isAuthtenicate: true }))
-            navigate('/home')
+            navigate('/')
         } catch (error) {
             console.log(error);
         }
