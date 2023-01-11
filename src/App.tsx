@@ -9,14 +9,19 @@ function App() {
 
   return (
     <Routes>
-      <PrivateRouter>
-          <Route path='/' element={<Home />}></Route>
-      </PrivateRouter>
-
+      <Route
+        path='/'
+        element={
+          <PrivateRouter>
+            <Home />
+          </PrivateRouter>
+        }
+      />
       <Route path='/login' element={<Login />}></Route>
       <Route path='/register' element={<Register />}></Route>
-      
+
       <Route path='*' element={<Login />}></Route>
+
     </Routes>
   )
 }

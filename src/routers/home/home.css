@@ -3,29 +3,3 @@
     padding: 0;
     display: flex;
 }
-
-.friends-container{
-    background-color: rgb(17, 27, 33);
-    width: 40%;
-    height: 100vh;
-    align-self: flex-start;
-}
-
-.chats-content img{
-    width: 2.1rem;
-}
-
-.chats-content{
-    padding: .8rem;
-    display: flex;
-}
-.chats-content p{
-    font-size: small;
-}
-.chats-content-right{
-    align-items: right;
-}
-.chats-name-msg{
-    padding-left: .5rem;
-    width: 70%;
-}
