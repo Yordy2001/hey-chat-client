@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import './home.css'
 import { FriendsController } from '../../helpers/api/friends.controller';
 import { IUser } from '../../interfaces/user.interface';
-
+import Chat from '../../components/chat';
 
 const friendsController = new FriendsController()
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
             <CssBaseline />
             <div className='main'>
                 <SideBar />
-                <div className='message-container'></div>
+                <Chat /> 
             </div>
 
 
