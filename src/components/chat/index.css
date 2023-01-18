@@ -1,4 +1,6 @@
 .chat-container {
-    width: 60%;
-    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(160, 160, 160, 0.815);
 }
