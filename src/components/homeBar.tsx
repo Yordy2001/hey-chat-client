@@ -164,7 +164,7 @@ export default function HomeBar() {
                         component="div"
                         sx={{ display: { xs: 'none', sm: 'block' } }}
                     >
-                        MUI
+                        HEY
                     </Typography>
                     <Search>
                         <SearchIconWrapper>
