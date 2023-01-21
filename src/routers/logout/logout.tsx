@@ -1,12 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 
-import FetchAuth from '../../utils/fetchAuth'
+import FetchAuth from '../../helpers/api/fetchAuth'
 
-
-type Props = {}
 
 const authService = new FetchAuth()
-const logOut = (props: Props) => {
+const logOut = () => {
     const navigate = useNavigate()
     const handleLogOut = async () => {
         await authService.logOut()

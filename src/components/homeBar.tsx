@@ -9,11 +9,14 @@ import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import MoreIcon from '@mui/icons-material/MoreVert';
+
+import logOut from '../routers/logout/logout';
+import { useNavigate } from 'react-router-dom'
+import FetchAuth from '../helpers/api/fetchAuth'
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -54,8 +57,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         },
     },
 }));
-
+// ! Instancia auth service
+const authService = new FetchAuth()
 export default function HomeBar() {
+    // !
+    const navigate = useNavigate()
+
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
         React.useState<null | HTMLElement>(null);
@@ -72,13 +79,19 @@ export default function HomeBar() {
     };
 
     const handleMenuClose = () => {
-        setAnchorEl(null);
-        handleMobileMenuClose();
+        logOut()
     };
 
     const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
+
+    const handleLogOut = async () => {
+        await authService.logOut()
+        localStorage.setItem('hey-chat', JSON.stringify({ isAuthtenicate: false }))
+        navigate("/login")
+        return
+    }
 
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
@@ -97,7 +110,7 @@ export default function HomeBar() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+            <MenuItem onClick={handleLogOut}>logout</MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
         </Menu>
     );

@@ -14,7 +14,6 @@ export default function Home() {
     const getData = async () => {
         const data = await friendsController.getFriends()
         setFriends(data)
-        console.log(data);
     }
 
     useEffect(() => {

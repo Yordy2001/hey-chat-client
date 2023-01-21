@@ -1,5 +1,5 @@
-import { ListItemAvatar, Avatar } from '@mui/material'
 import React from 'react'
+import { ListItemAvatar, Avatar } from '@mui/material'
 import HomeBar from '../homeBar'
 import '../sideBar/sideBar.css'
 
