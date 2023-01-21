@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 import { IUser } from '../../interfaces/user.interface'
-import FetchAuth from '../../utils/fetchAuth';
+import FetchAuth from '../../helpers/api/fetchAuth';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -84,12 +84,12 @@ const Register = (props: Props) => {
                         >
                             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                             </Avatar>
-                        <input
-                            onChange={handleFile}
-                            type="file"
-                            name="portada"
-                            hidden
-                        />
+                            <input
+                                onChange={handleFile}
+                                type="file"
+                                name="portada"
+                                hidden
+                            />
                         </Button>
                         <TextField
                             margin="normal"

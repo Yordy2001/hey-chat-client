@@ -1,0 +1,61 @@
+.message-box {
+    width: 100%;
+    height: 83%;
+    background-color: rgb(80, 82, 77);
+}
+
+.message-box::-webkit-scrollbar {
+    width: 1em;
+}
+
+.message-box::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.message-box::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+.message-content {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(101, 122, 134);
+    overflow-y: scroll;
+}
+
+.msg-block {
+    display: flex;
+    flex-direction: column;
+    box-sizing: content-box;
+    height: auto;
+    margin: auto;
+    font-size: 1rem;
+}
+
+.message {
+    max-width: 50%;
+    width: fit-content;
+    height: auto;
+    padding: .1rem .5rem;
+    font-size: 1rem;
+    color: black;
+    word-wrap: break-word;
+}
+
+.user-msg {
+    margin-bottom: 4px;
+    border-radius: .5rem .5rem 0 .5rem;
+    align-self: flex-end;
+    margin-right: .3rem;
+    background-color: rgb(7, 177, 64);
+}
+
+.friend-msg {
+    align-self: flex-start;
+    margin-bottom: 4px;
+    border-radius: .5rem .5rem .5rem 0;
+    margin-left: .3rem;
+    background-color: white;
+}

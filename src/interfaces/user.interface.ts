@@ -6,5 +6,5 @@ export interface IUser {
   portada: any;
   isActive?: boolean;
   cloudinary_id?: string;
-  friend?: string;
+  friend?: string[];
 }
