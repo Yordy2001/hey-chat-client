@@ -1,0 +1,28 @@
+.input-field-cont{
+    width: 100%;
+    height: 10%;
+    background-color: rgb(101, 122, 134);
+}
+.input-field-cont {
+    display: flex;
+    align-items: center;
+}
+.input-btn{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.input-btn input {
+    width: 90%;
+    padding: .8rem;
+    outline: none;
+    border:1px solid green;
+    border-radius: 60px;
+    font-size: large;
+}
+
+.input-btn button {
+    width: fit-content;
+    padding: .8rem;
+}
