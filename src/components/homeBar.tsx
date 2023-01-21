@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useContext } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -17,6 +17,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import logOut from '../routers/logout/logout';
 import { useNavigate } from 'react-router-dom'
 import FetchAuth from '../helpers/api/fetchAuth'
+import { SocketContext } from '../context/socket';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -60,8 +61,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 // ! Instancia auth service
 const authService = new FetchAuth()
 export default function HomeBar() {
-    // !
+    // !initialize navigate and useContext
     const navigate = useNavigate()
+    const socket = useContext(SocketContext)
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
@@ -89,6 +91,7 @@ export default function HomeBar() {
     const handleLogOut = async () => {
         await authService.logOut()
         localStorage.setItem('hey-chat', JSON.stringify({ isAuthtenicate: false }))
+        socket.emit('logout', socket.id)
         navigate("/login")
         return
     }

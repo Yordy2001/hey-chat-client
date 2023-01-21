@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
-import { IUser } from '../../interfaces/user.interface'
-import FetchAuth from '../../helpers/api/fetchAuth';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,11 +10,12 @@ import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Box from '@mui/material/Box';
-
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import { IUser } from '../../interfaces/user.interface'
+import FetchAuth from '../../helpers/api/fetchAuth';
+import { SocketContext } from '../../context/socket';
 
 type Props = {}
 
@@ -23,13 +23,15 @@ const authService = new FetchAuth()
 export const Login = (props: Props) => {
     const theme = createTheme();
     const navigate = useNavigate()
+    const socket = useContext(SocketContext)
     const { register, handleSubmit } = useForm<IUser>()
 
     const onSubmit = async (data: IUser, e: any) => {
         e.preventDefault()
         try {
             await authService.logIn(data)
-            localStorage.setItem('hey-chat', JSON.stringify({ isAuthtenicate: true }))
+            socket.emit('connection', data.tel)
+            localStorage.setItem('hey-chat', JSON.stringify({ isAuthtenicate: true, tel: data.tel }))
             navigate('/')
         } catch (error) {
             console.log(error);

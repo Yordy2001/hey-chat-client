@@ -24,11 +24,9 @@ export default function Home() {
         <React.Fragment>
             <CssBaseline />
             <div className='main'>
-                <SideBar />
+                <SideBar friends={friends} />
                 <Chat /> 
             </div>
-
-
         </React.Fragment >
     );
 }
