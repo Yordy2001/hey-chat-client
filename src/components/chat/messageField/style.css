@@ -8,12 +8,15 @@
     align-items: center;
 }
 .input-btn{
+    width: 100%;
+}
+.message-form{
     display: flex;
     justify-content: space-around;
     width: 100%;
 }
 
-.input-btn input {
+.message-form input {
     width: 90%;
     padding: .8rem;
     outline: none;
@@ -22,7 +25,9 @@
     font-size: large;
 }
 
-.input-btn button {
+.message-form button {
+    background:none;
+    border: none;
     width: fit-content;
     padding: .8rem;
 }

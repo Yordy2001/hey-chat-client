@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import SideBar from '../../components/sideBar/sideBar';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import './home.css'
 import { FriendsController } from '../../helpers/api/friends.controller';
-import { IUser } from '../../interfaces/user.interface';
 import Chat from '../../components/chat';
+import { IUser } from '../../interfaces/user.interface';
+import './home.css'
 
 const friendsController = new FriendsController()
 export default function Home() {
     const [friends, setFriends] = useState<IUser[]>([])
+    const [chat, setChat] = useState({
+        isChat: false,
+        chatId: ''
+    })
 
     const getData = async () => {
         const data = await friendsController.getFriends()
@@ -24,8 +28,8 @@ export default function Home() {
         <React.Fragment>
             <CssBaseline />
             <div className='main'>
-                <SideBar friends={friends} />
-                <Chat /> 
+                <SideBar friends={friends} setIsChat={setChat} />
+                <Chat isChat={chat.isChat} setIsChat={setChat} chatId={chat.chatId}/>
             </div>
         </React.Fragment >
     );

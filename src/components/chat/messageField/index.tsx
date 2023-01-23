@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FormEventHandler, useState } from 'react'
 import SendIcon from '@mui/icons-material/Send';
 import KeyboardVoiceSharpIcon from '@mui/icons-material/KeyboardVoiceSharp';
 
@@ -9,15 +9,35 @@ type Props = {}
 
 const MessageField = (props: Props) => {
   const [isWriting, setIsWriting] = useState(false)
+  const [inputValue, setinputValue] = useState('')
+
+  const handleChange = (e: React.FormEvent<HTMLInputElement>): void => {
+    setinputValue(e.currentTarget.value);
+    if (!inputValue.trim()) {
+      setIsWriting(true)
+    }
+  }
+
+
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+  }
 
   return (
     <div className='input-field-cont'>
       <br />
       <div className='input-btn'>
-        <input type="text" />
-        <Fab color="primary" aria-label="send">
-          { isWriting ? <SendIcon /> :< KeyboardVoiceSharpIcon /> } 
-        </Fab>
+        <form className='message-form' onSubmit={handleSubmit}>
+          <input type="text" name='message' onChange={handleChange} value={inputValue} />
+          <Fab color="primary" aria-label="send">
+            {isWriting
+              ?
+              <SendIcon color="primary" />
+              :
+              < KeyboardVoiceSharpIcon />}
+          </Fab>
+        </form>
       </div>
     </div>
   )

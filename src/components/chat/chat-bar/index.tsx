@@ -11,12 +11,13 @@ import FormGroup from '@mui/material/FormGroup';
 import Tooltip from '@mui/material/Tooltip';
 import Avatar from '@mui/material/Avatar';
 import { Menu } from '@mui/material';
+import { IUser } from '../../../interfaces/user.interface';
 
 type props = {
-
+    user: IUser[]
 }
 
-export default function ChatBar({ }: props) {
+export default function ChatBar({ user }: props) {
     const [auth, setAuth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -48,13 +49,13 @@ export default function ChatBar({ }: props) {
                     >
                         <Tooltip title="Open settings">
                             <IconButton sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                <Avatar alt="Remy Sharp" src={user[0].portada ? user[0]?.portada : `/static/images/avatar/2.jpg`} />
                             </IconButton>
                         </Tooltip>
 
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Name
+                        {user[0]?.name}
                     </Typography>
                     <Menu
                         id="menu-appbar"
